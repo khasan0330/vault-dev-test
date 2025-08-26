@@ -101,17 +101,14 @@
 
 ## Шаг 4: Создание секрета в Vault
 
-1. **Включите движок секретов KV**:
-   ```bash
-   kubectl exec -it vault-0 -n vault -- vault secrets enable -path=secret kv
-   ```
 
-2. **Создайте тестовый секрет**:
+
+1. **Создайте тестовый секрет**:
    ```bash
    kubectl exec -it vault-0 -n vault -- vault kv put secret/db-pass password="12345678"
    ```
 
-3. **Проверьте секрет**:
+2. **Проверьте секрет**:
    ```bash
    kubectl exec -it vault-0 -n vault -- vault kv get secret/db-pass
    ```
