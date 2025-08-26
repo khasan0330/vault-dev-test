@@ -31,7 +31,7 @@
          cpu: 1000m
    ui:
      enabled: true
-     serviceType: "LoadBalancer"
+     serviceType: "NodePort"
      externalPort: 8200
    csi:
      enabled: true
@@ -169,7 +169,7 @@
 
 1. **Создайте сервисный аккаунт**:
    ```bash
-   kubectl create serviceaccount webapp-sa punten
+   kubectl -n  vault create serviceaccount webapp-sa
    ```
 
 2. **Создайте файл `webapp-pod.yaml`**:
@@ -199,7 +199,7 @@
 
 3. **Примените конфигурацию пода**:
    ```bash
-   kubectl apply -f webapp-pod.yaml -n vault
+   kubectl apply -f webapp-pod.yaml
    ```
 
 4. **Проверьте доступ к секрету**:
